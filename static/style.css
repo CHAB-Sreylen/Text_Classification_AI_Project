@@ -1,0 +1,16 @@
+/* your_flask_app/static/style.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #007bff;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}

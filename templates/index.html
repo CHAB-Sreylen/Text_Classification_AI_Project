@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App - Document Categorization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  <!-- Linking CSS -->
+</head>
+<body>
+    <h1>Welcome to Document Categorization</h1>
+    <p>Enter a short document below to categorize it:</p>
+    
+    <!-- Form to capture input text -->
+    <form action="/predict" method="POST">
+        <label for="document">Input your document:</label><br>
+        <textarea id="document" name="document" rows="4" cols="50" placeholder="Type your document here..."></textarea><br><br>
+        
+        <button type="submit">Classify Document</button>
+    </form>
+
+</body>
+</html>
