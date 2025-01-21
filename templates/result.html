@@ -1,14 +1,23 @@
-<!-- your_flask_app/templates/result.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Categorization Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Document Categorization Result</h1>
-    <p>Your document belongs to the category: {{ prediction }}</p>
-    <a href="/">Back to Home</a>
+    <div class="page-wrapper">
+        <div class="glass-container result-container">
+            <div class="content-header">
+                <h1>Document Categorization Result</h1>
+            </div>
+            <div class="result-content">
+                <h3>Your document belongs to the category:</h3>
+                <div class="prediction-badge">{{ prediction }}</div>
+                <a href="/" class="back-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,16 +1,242 @@
-/* your_flask_app/static/style.css */
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-gradient-start: #eef2ff;
+    --bg-gradient-end: #e0e7ff;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-header {
     text-align: center;
-    padding: 50px;
-    background-color: #f8f9fa;
+    margin-bottom: 2rem;
 }
 
 h1 {
-    color: #007bff;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--primary-color);
 }
 
-p {
-    font-size: 16px;
-    color: #555;
+.content-header p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card-content {
+    padding: 1rem 0;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.brain-icon {
+    font-size: 1.5rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.card-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background: white;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background: white;
+    font-size: 1rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+input[type="file"]::file-selector-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--primary-hover);
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.error-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Result page specific styles */
+.result-container {
+    text-align: center;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.prediction-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.back-link:hover {
+    color: var(--primary-hover);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .page-wrapper {
+        padding: 1rem;
+    }
+    
+    .glass-container {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
 }
